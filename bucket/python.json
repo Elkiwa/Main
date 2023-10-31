@@ -44,6 +44,7 @@
     ],
     "installer": {
         "script": [
+            "[Environment]::SetEnvironmentVariable('PIP_CACHE_DIR', \"D:\\packages\\pip\", 'Process')",
             "Expand-DarkArchive \"$dir\\setup.exe\" \"$dir\\_tmp\"",
             "@('path.msi', 'pip.msi') | ForEach-Object {",
             "    Remove-Item \"$dir\\_tmp\\AttachedContainer\\$_\"",
@@ -88,7 +89,6 @@
         "."
     ],
     "persist": [
-        "Scripts",
         "Lib\\site-packages"
     ],
     "checkver": {
