@@ -3,7 +3,7 @@
     "description": "A programming language that lets you work quickly and integrate systems more effectively.",
     "homepage": "https://www.python.org/",
     "license": "Python-2.0",
-    "notes": "Allow applications and third-party installers to find python by running: \"$dir\\install-pep-514.reg\"",
+    "notes": "Allow applications and third-party installers to find python by running: \"$dir\\install-pep-514.reg\". Check scoop main bucket issue 5090",
     "architecture": {
         "64bit": {
             "url": "https://www.python.org/ftp/python/3.13.5/python-3.13.5-amd64.exe#/setup.exe",
@@ -44,6 +44,7 @@
     ],
     "installer": {
         "script": [
+            "[Environment]::SetEnvironmentVariable('PIP_CACHE_DIR', \"D:\\packages\\pip\", 'Process')",
             "Expand-DarkArchive \"$dir\\setup.exe\" \"$dir\\_tmp\"",
             "@('path.msi', 'pip.msi') | ForEach-Object {",
             "    Remove-Item \"$dir\\_tmp\\AttachedContainer\\$_\"",
@@ -62,7 +63,8 @@
     },
     "post_install": [
         "python -E -s -m ensurepip -U --default-pip | Out-Null",
-        "Write-Output \"$([char]0x1b)[0m\" # Reset ansi to prevent color leak from installer"
+        "Write-Output \"$([char]0x1b)[0m\" # Reset ansi to prevent color leak from installer",
+        "# New-Item -Name \"$dir\\Scripts\\placeholder.txt\" -ItemType File"
     ],
     "uninstaller": {
         "script": [
@@ -87,6 +89,9 @@
         "Scripts",
         "."
     ],
+    "env_set": {
+        "PIP_CACHE_DIR": "D:\\packages\\pip"
+    },
     "persist": [
         "Scripts",
         "Lib\\site-packages"
