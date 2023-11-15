@@ -28,18 +28,20 @@
     },
     "installer": {
         "script": [
-            "[Environment]::SetEnvironmentVariable('CARGO_HOME', \"$persist_dir\\.cargo\", 'Process')",
+            "[Environment]::SetEnvironmentVariable('CARGO_HOME', \"D:\\packages\\cargo\", 'Process')",
             "[Environment]::SetEnvironmentVariable('RUSTUP_HOME', \"$persist_dir\\.rustup\", 'Process')",
-            "Invoke-ExternalCommand -Path \"$dir\\rustup-init.exe\" -Args @('-y', '--no-modify-path') | Out-Null"
+            "Invoke-ExternalCommand -Path \"$dir\\rustup-init.exe\" -Args @('-y', '--no-modify-path') | Out-Null",
+            "$addPath = \"D:\\packages\\cargo\\bin\"",
+            "$scope = 'User'",
+            "[Environment]::SetEnvironmentVariable('PATH', ([Environment]::GetEnvironmentVariable('PATH', $scope) + \";$addPath\"), $scope)",
+            "$env:PATH += \";$addPath\""
         ]
     },
-    "env_add_path": ".cargo\\bin",
     "env_set": {
-        "CARGO_HOME": "$persist_dir\\.cargo",
+        "CARGO_HOME": "D:\\packages\\cargo",
         "RUSTUP_HOME": "$persist_dir\\.rustup"
     },
     "persist": [
-        ".cargo",
         ".rustup"
     ],
     "checkver": {
