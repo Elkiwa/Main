@@ -13,7 +13,7 @@
         }
     },
     "innosetup": true,
-    "bin": "espansod.exe",
+    "bin": "espanso.cmd",
     "shortcuts": [
         [
             "espansod.exe",
@@ -22,6 +22,9 @@
             "icon.ico"
         ]
     ],
+    "env_set": {
+        "EDITOR": "$HOME\\AppData\\Local\\Programs\\Microsoft VS Code Insiders\\Code - Insiders.exe"
+    },
     "persist": ".espanso",
     "checkver": {
         "github": "https://github.com/espanso/espanso"
