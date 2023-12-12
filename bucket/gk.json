@@ -1,0 +1,33 @@
+{
+    "version": "1.5.1",
+    "description": "GitKraken cli",
+    "homepage": "https://www.gitkraken.com/cli",
+    "license": "CC-BY-3.0-US",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/gitkraken/gk-cli/releases/download/v1.5.1/gk_1.5.1_Windows_x86_64.zip",
+            "hash": "45a7216c92348c3ff4ef57762299ff3d75656403cb7fb912e0218b8631adaff3"
+        },
+        "arm64": {
+            "url": "https://github.com/gitkraken/gk-cli/releases/download/v1.5.1/gk_1.5.1_Windows_arm64.zip",
+            "hash": "47f39a42f775d4070a0881a223805d7b45bbeff3e394048402c0303d8d9c6487"
+        }
+    },
+    "bin": "gk.exe",
+    "checkver": {
+        "github": "https://github.com/gitkraken/gk-cli/"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/gitkraken/gk-cli/releases/download/v$version/gk_$version_Windows_x86_64.zip"
+            },
+            "arm64": {
+                "url": "https://github.com/gitkraken/gk-cli/releases/download/v$version/gk_$version_Windows_arm64.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/checksums.txt"
+        }
+    }
+}
