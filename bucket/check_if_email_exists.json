@@ -1,0 +1,30 @@
+{
+    "version": "0.9.1",
+    "description": "A collection of Avro tools. Data serialization system.",
+    "homepage": "https://reacher.email/",
+    "license": "https://github.com/reacherhq/check-if-email-exists?tab=License-1-ov-file",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/reacherhq/check-if-email-exists/releases/download/v0.9.1/check_if_email_exists-x86_64-pc-windows-msvc.tar.gz",
+            "hash": "6f05f2c52390705aad37f507832573f04a0ebd97f9c8fb7895190c2c2dd329a0"
+        },
+        "32bit": {
+            "url": "https://github.com/reacherhq/check-if-email-exists/releases/download/v0.9.1/check_if_email_exists-i686-pc-windows-msvc.tar.gz",
+            "hash": "cadfa9946e23d162a1cccd698087fd5118ae4e49eb04a8cf9e3ce985d5ba13d7"
+        }
+    },
+    "bin": "check_if_email_exists.exe",
+    "checkver": {
+        "github": "https://github.com/reacherhq/check-if-email-exists/"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/reacherhq/check-if-email-exists/releases/download/v$version/check_if_email_exists-x86_64-pc-windows-msvc.tar.gz"
+            },
+            "32bit": {
+                "url": "https://github.com/reacherhq/check-if-email-exists/releases/download/v$version/check_if_email_exists-i686-pc-windows-msvc.tar.gz"
+            }
+        }
+    }
+}
