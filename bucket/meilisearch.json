@@ -1,0 +1,23 @@
+{
+    "version": "1.6.2",
+    "description": "Flexible and powerful user-focused search engine that can be added to any website or application.",
+    "homepage": "https://www.meilisearch.com/",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/meilisearch/meilisearch/releases/download/v1.6.2/meilisearch-windows-amd64.exe#/meilisearch.exe",
+            "hash": "60585ac494f160d4764e3d36cacbc8289dbdf961de16e15b43f536d3406cbd2a"
+        }
+    },
+    "bin": "meilisearch.exe",
+    "checkver": {
+        "github": "https://github.com/meilisearch/meilisearch"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/meilisearch/meilisearch/releases/download/v$version/meilisearch-windows-amd64.exe"
+            }
+        }
+    }
+}
